@@ -1,82 +1,84 @@
-# NAME OF APPLICATION
+# Generic Social Media Site
 
-_One or two sentence description of application_
-
-_example:_
-
-Web application that retrieves and sorts a list of cartoon dogs from a remote database
+_Generic social media site that allows users to make a profile, upvote/downvote others' profiles, and that's pretty much it. Maybe we'll come up with a name for it later, like SPRONKR. What a great name!_
 
 ## Wireframe
 
 _Put an image of your wireframe here._
 
-## Make a plan of attack
+## here's the plan
 
-- list things out in plain English/pseudocode; no need to specify ids, for example
-
-_example:_
-
-1. Write HTML elements, label with IDs
-2. Make page layout with CSS
-3. Grab HTML elements with `getElementById()`, store in JS variables
-4. etc...
+0. readme/planning
+1. Set up supabase tables
+2. Make basic page layout with html/css
+3. add test data to tables manually; write fetch/display functions, test
+4. write functions/page JS for users to write bio/avatar/name/etc, test
 
 ## HTML elements (stuff present upon page load)
+### (All pages)
+    - nav bar with links to:
+        - profiles list page
+        - logged in user's profile page
+        - edit user profile page
+        - logout button
 
-- doesn't need to be absolutely every html element on the page
-  - can just be stuff on page that user will have to interact with and you'll have to grab in `app.js`
+### Profiles list page
+    - section for list of profiles, sorted by popularity: constant battle
+        - each link to profile should display: username, avatar, popularity
 
-_example:_
+### Profile detail page
+    - section for: avatar, username, bio, popularity, upvote/downvote buttons
 
-- Form containing user text input and submit button
-- Flexbox div that will contain displayed list of dogs
+### Edit profile page
+    - form allowing user to edit: username, avatar, bio
+    - if user leaves field blank, do not change data
+
+### Create profile page
+    - same as profile page, without links to other pages at top
 
 ## State (everything you need to track internally using JS variables)
 
-- counters, user data that's been entered, stuff fetched from external databases, etc
-- generally, any JS variables that exist in the global scope in `app.js` go here
+### (All pages)
+    - object to hold username, avatar of logged in user
 
-_example:_
+### Profile detail page
+    - array to hold all profile data locally, to render to page
 
-- `employeeList` - array containing all employee objects
+### Detail page
+    - object to hold single profile data locally to render to page
 
 ## Events (anything that happens via JS when the user interacts with your site)
 
-- list both triggering event and its resulting effects
+### All pages (nav bar)
+    - links to: user's profile, edit profile page, logout
 
-_example:_
+### Profile detail page
+    - upvote/downvote buttons, on click:
+        - increment/decrement user's popularity in DB, update on page
 
-- Submit button clicked:
-  - Pull data from input form
-  - Run data through `processData(data)`
-  - Put processed data in array `processedData`
-  - Render and display processed data on page
+### Create/Edit Profile pages
+    - on form submit: update info in DB
 
-## Functions (to plan out how you'll segment things)
 
-- it's not necessary to specify all args! when starting out, you're just trying to figure out how you're going to segment your work
-- but! make sure to put your render and display functions here!! that's part of segementing out your program logic!!
-    - that also keeps your event listeners clean because it'll be mostly function calls
-
-_example:_
-
-- `calculateTripTime(distance)` - calculates trip time based on total trip distance
+## Functions
 
 ### Render Functions
+    - `renderProfileCard` - for profile list page
+    - `renderProfileDetails` - for profile detail page
+    - `renderPopularityEl(profile)` - given user profile object, renders upvote/downvote buttons w/event listeners and popularity display
+    - `renderNavbarUserData` - rendering logged in user's avatar/username for top nav bar
 
 ### Display functions
+    - `displayProfileList` - for profile list page
+    - `displayProfileDetails` - for profile detail page
+    - `displayNavbarUserData` - display logged in user's avatar/username at top nav bar
 
 ### Fetch Functions (if applicable)
+    - `fetchProfile(id)` - fetch a single profile via id
+    - `fetchAllProfiles()` - fetch all profiles
+    - `upsertProfile(profile)` - updates/creates profile in supabase: if a field is left blank, do not update that column
+    - `incrementPopularity(id)` - using id, increments profile popularity in DB
+    - `decrementPopularity(id)` - same as above but decrement instead
 
 ### Other Functions
-
-## Slices
-
-_list of JS functions and features that need to be written in order, usually because each one depends on the previous ones being usable_
-
-**example:**
-
-1. write createObject()
-2. write renderObject(), which depends on object existing
-3. write displayObject(), which depends on `renderObject()`
-4. write processObject(), which depends on object existing
+    - we'll see
