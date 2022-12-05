@@ -4,7 +4,7 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 
 ## Wireframe
 
-_Put an image of your wireframe here._
+![wireframe diagram](./assets/wireframe.png)
 
 ## here's the plan
 
