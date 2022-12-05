@@ -9,6 +9,7 @@ export function renderProfileCard(profile) {
     popularityScoreEl.textContent = profile.popularity;
 
     // add classes to elements
+    avatarImageEl.classList.add('avatar-img');
 
     // event listener for clicking on user
 
@@ -40,6 +41,7 @@ export function renderNavBarContents(profile) {
     separatorChar.textContent = '|';
 
     // add css classes to nav bar elements
+    currentUserAvatar.classList.add('avatar-img');
 
     navBarContents.append(
         profileListPageLink,
