@@ -28,3 +28,16 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+export function checkError({ data, error }) {
+    if (error) {
+        return console.error(error);
+    } else {
+        return data;
+    }
+}
+
+export async function fetchAllProfiles() {
+    const response = await client.from('profiles').select().order('popularity');
+
+    return checkError(response);
+}
