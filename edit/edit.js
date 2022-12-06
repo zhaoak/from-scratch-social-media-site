@@ -1,4 +1,10 @@
-import { upsertProfile, uploadImg, getUser, fetchCurrentUser } from '../fetch-utils.js';
+import {
+    upsertProfile,
+    uploadImg,
+    getUser,
+    fetchCurrentUser,
+    redirectIfNoProfile,
+} from '../fetch-utils.js';
 import { renderNavBarContents } from '../render-utils.js';
 
 const userData = document.getElementById('edit');
@@ -10,6 +16,9 @@ let currentUser;
 
 window.addEventListener('load', async () => {
     currentUser = await fetchCurrentUser();
+
+    redirectIfNoProfile(currentUser);
+
     navSectionEl.append(renderNavBarContents(currentUser));
 
     usernameEntryEl.value = currentUser.user_name;

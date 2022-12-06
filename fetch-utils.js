@@ -106,3 +106,9 @@ export async function uploadImg(imgPath, imgFile) {
 
     return url;
 }
+
+export function redirectIfNoProfile(profile) {
+    if (!profile) {
+        location.replace('../create');
+    }
+}

@@ -1,6 +1,6 @@
 //imports
 
-import { fetchCurrentUser, fetchProfile } from '../fetch-utils.js';
+import { fetchCurrentUser, fetchProfile, redirectIfNoProfile } from '../fetch-utils.js';
 import { renderProfileDetails, renderNavBarContents } from '../render-utils.js';
 
 //dom
@@ -21,6 +21,8 @@ window.addEventListener('load', async () => {
         return;
     }
     const currentUser = await fetchCurrentUser();
+
+    redirectIfNoProfile(currentUser);
 
     const profile = await fetchProfile(id);
     displayProfileDetails(profile);
