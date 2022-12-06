@@ -14,6 +14,9 @@ export function renderProfileCard(profile) {
     avatarImageEl.classList.add('avatar-img');
 
     // event listener for clicking on user
+    profileContainer.addEventListener('click', () => {
+        location.assign(`./detail/index.html?id=${profile.id}`);
+    });
 
     profileContainer.append(avatarImageEl, usernameEl, popularityScoreEl);
     return profileContainer;
@@ -82,7 +85,7 @@ export function renderProfileDetails(profile) {
 
     //eventHandler for up/downvote buttons
     //css styling yet unfinished
-    imageEl.classList.add('detailimg');
+    imageEl.classList.add('detailing');
 
     profileDetailsContainerEl.append(
         imageEl,
