@@ -1,3 +1,5 @@
+import { signOutUser } from './fetch-utils.js';
+
 export function renderProfileCard(profile) {
     const profileContainer = document.createElement('div');
     const avatarImageEl = document.createElement('img');
@@ -39,6 +41,13 @@ export function renderNavBarContents(profile) {
     currentUserAvatar.src = profile.avatar_url;
     avatarLinkWrapper.append(currentUserAvatar);
     separatorChar.textContent = '|';
+    logoutLink.textContent = 'Logout';
+    logoutLink.href = '.';
+
+    logoutLink.addEventListener('click', async () => {
+        await signOutUser();
+        location.replace('../auth');
+    });
 
     // add css classes to nav bar elements
     currentUserAvatar.classList.add('avatar-img');
@@ -49,7 +58,8 @@ export function renderNavBarContents(profile) {
         editProfilePageLink,
         separatorChar,
         currentUserUsernameLink,
-        avatarLinkWrapper
+        avatarLinkWrapper,
+        logoutLink
     );
     return navBarContents;
 }
