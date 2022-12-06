@@ -1,10 +1,10 @@
 //imports
 
 import { fetchAllProfiles, fetchProfile } from '../fetch-utils.js';
-import { renderProfileDetails } from '../render-utils.js';
+import { renderProfileDetails, renderNavBarContents } from '../render-utils.js';
 
 //dom
-
+const navSectionEl = document.querySelector('nav');
 const profileDetailsEl = document.querySelector('#profile-details');
 
 const params = new URLSearchParams(location.search);
@@ -20,15 +20,16 @@ window.addEventListener('load', async () => {
 
         return;
     }
-    //displayProfileDetails
+    const profile = await fetchProfile(id);
+    displayProfileDetails(profile);
+    navSectionEl.append(renderNavBarContents(profile));
 });
 
 //display functions
 
-async function displayProfileDetails() {
+async function displayProfileDetails(profile) {
     profileDetailsEl.textContent = '';
 
-    const profile = await fetchProfile(id);
     console.log('profile', profile);
     // profile;
 

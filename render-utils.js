@@ -72,6 +72,7 @@ export function renderProfileDetails(profile) {
 
     //eventHandler for up/downvote buttons
     //css styling yet unfinished
+    imageEl.classList.add('detailimg');
 
     profileDetailsContainerEl.append(
         imageEl,
