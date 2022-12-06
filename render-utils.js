@@ -53,3 +53,34 @@ export function renderNavBarContents(profile) {
     );
     return navBarContents;
 }
+
+export function renderProfileDetails(profile) {
+    const profileDetailsContainerEl = document.createElement('div');
+    const imageEl = document.createElement('img');
+    const popularityDisplayEl = document.createElement('div');
+    const upvoteEl = document.createElement('button');
+    const downvoteEl = document.createElement('button');
+    const usernameHeaderEl = document.createElement('h2');
+    const userBioEl = document.createElement('div');
+
+    imageEl.src = profile.avatar_url;
+    popularityDisplayEl.textContent = profile.popularity;
+    upvoteEl.textContent = 'Upvote';
+    downvoteEl.textContent = 'Downvote';
+    usernameHeaderEl.textContent = profile.user_name;
+    userBioEl.textContent = profile.bio;
+
+    //eventHandler for up/downvote buttons
+    //css styling yet unfinished
+
+    profileDetailsContainerEl.append(
+        imageEl,
+        popularityDisplayEl,
+        upvoteEl,
+        downvoteEl,
+        usernameHeaderEl,
+        userBioEl
+    );
+
+    return profileDetailsContainerEl;
+}

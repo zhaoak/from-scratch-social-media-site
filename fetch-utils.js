@@ -41,3 +41,8 @@ export async function fetchAllProfiles() {
 
     return checkError(response);
 }
+
+export async function fetchProfile(id) {
+    const response = await client.from('profiles').select('*').match({ id }).single();
+    return checkError(response);
+}
