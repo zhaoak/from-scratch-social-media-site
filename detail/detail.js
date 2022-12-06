@@ -1,6 +1,6 @@
 //imports
 
-import { fetchAllProfiles, fetchProfile } from '../fetch-utils.js';
+import { fetchCurrentUser, fetchProfile } from '../fetch-utils.js';
 import { renderProfileDetails, renderNavBarContents } from '../render-utils.js';
 
 //dom
@@ -20,9 +20,11 @@ window.addEventListener('load', async () => {
 
         return;
     }
+    const currentUser = await fetchCurrentUser();
+
     const profile = await fetchProfile(id);
     displayProfileDetails(profile);
-    navSectionEl.append(renderNavBarContents(profile));
+    navSectionEl.append(renderNavBarContents(currentUser));
 });
 
 //display functions
