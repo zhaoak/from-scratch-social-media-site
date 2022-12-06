@@ -70,3 +70,39 @@ export async function decrementPopularity(id) {
 
     return checkError(response);
 }
+
+export async function upsertProfile(profile) {
+    const response = await client
+        .from('profiles')
+        .upsert(profile, { onConflict: 'user_id' })
+        .single();
+
+    return checkError(response);
+}
+
+export async function fetchCurrentUser() {
+    const response = await client
+        .from('profiles')
+        .select()
+        .match({ user_id: client.auth.user().id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function uploadImg(imgPath, imgFile) {
+    const bucket = client.storage.from('social-media-avatar');
+
+    const response = await bucket.upload(imgPath, imgFile, {
+        cacheControl: '3600',
+        upsert: true,
+    });
+
+    if (response.error) {
+        return null;
+    }
+
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
+    return url;
+}
