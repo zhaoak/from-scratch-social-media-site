@@ -102,4 +102,4 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 ## Todos
 
     - change cursor to look clickable when hovering clickable objects
-    -
+    - drop shadows absolutely everywhere
