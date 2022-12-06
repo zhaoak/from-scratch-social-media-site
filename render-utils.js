@@ -1,4 +1,4 @@
-import { signOutUser } from './fetch-utils.js';
+import { incrementPopularity, decrementPopularity, signOutUser } from './fetch-utils.js';
 
 export function renderProfileCard(profile) {
     const profileContainer = document.createElement('div');
@@ -84,6 +84,22 @@ export function renderProfileDetails(profile) {
     userBioEl.textContent = profile.bio;
 
     //eventHandler for up/downvote buttons
+    upvoteEl.addEventListener('click', async () => {
+        upvoteEl.disabled = true;
+
+        await incrementPopularity(profile.id);
+
+        popularityDisplayEl.textContent++;
+    });
+
+    downvoteEl.addEventListener('click', async () => {
+        downvoteEl.disabled = true;
+
+        await decrementPopularity(profile.id);
+
+        popularityDisplayEl.textContent--;
+    });
+
     //css styling yet unfinished
     imageEl.classList.add('detailimg');
 

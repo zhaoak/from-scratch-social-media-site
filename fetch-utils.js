@@ -46,3 +46,27 @@ export async function fetchProfile(id) {
     const response = await client.from('profiles').select('*').match({ id }).single();
     return checkError(response);
 }
+
+export async function incrementPopularity(id) {
+    const profile = await fetchProfile(id);
+
+    const response = await client
+        .from('profiles')
+        .update({ popularity: profile.popularity + 1 })
+        .match({ id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function decrementPopularity(id) {
+    const profile = await fetchProfile(id);
+
+    const response = await client
+        .from('profiles')
+        .update({ popularity: profile.popularity - 1 })
+        .match({ id })
+        .single();
+
+    return checkError(response);
+}
