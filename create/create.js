@@ -1,4 +1,4 @@
-import { fetchCurrentUser, upsertProfile, uploadImg } from '../fetch-utils.js';
+import { fetchCurrentUser, upsertProfile, uploadImg, getUser } from '../fetch-utils.js';
 
 const userData = document.getElementById('create');
 let currentUser;
@@ -11,7 +11,11 @@ userData.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const profileData = new FormData(userData);
-    const newProfile = { user_name: profileData.get('username'), bio: profileData.get('bio') };
+    const newProfile = {
+        user_name: profileData.get('username'),
+        bio: profileData.get('bio'),
+        user_id: getUser().id,
+    };
     const imgFile = profileData.get('avatar');
 
     if (imgFile.size) {
