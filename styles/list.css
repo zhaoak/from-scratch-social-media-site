@@ -1,4 +1,25 @@
 .avatar-img {
     height: 3em;
     width: 3em;
+    border-radius: 1rem;
+    border: thick double #cdb4dbff;
+}
+
+.profile-card {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 20rem;
+    border: thick double #cdb4dbff;
+    border-radius: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: linear-gradient(135deg, #cdb4dbff, #ffc8ddff, #ffafccff, #bde0feff, #a2d2ffff);
+}
+
+#profiles-list {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.5rem;
 }

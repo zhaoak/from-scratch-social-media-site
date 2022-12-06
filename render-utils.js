@@ -11,6 +11,7 @@ export function renderProfileCard(profile) {
     popularityScoreEl.textContent = profile.popularity;
 
     // add classes to elements
+    profileContainer.classList.add('profile-card');
     avatarImageEl.classList.add('avatar-img');
 
     // event listener for clicking on user

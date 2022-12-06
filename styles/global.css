@@ -7,6 +7,13 @@
     --offset-color: rgb(217, 236, 217);
     --action-color: rgb(77, 132, 252);
 
+    /* CSS HEX */
+    --pink-lavender: #cdb4dbff;
+    --orchid-pink: #ffc8ddff;
+    --nadeshiko-pink: #ffafccff;
+    --uranian-blue: #bde0feff;
+    --baby-blue-eyes: #a2d2ffff;
+
     --primary-font: 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 }
@@ -15,7 +22,7 @@ body {
     height: 100vh;
     font-family: var(--primary-font);
     color: var(--text-color);
-    background: var(--background);
+    background: linear-gradient(225deg, #cdb4dbff, #ffc8ddff, #ffafccff, #bde0feff, #a2d2ffff);
     display: grid;
     grid-template-rows: auto 1fr;
 }
