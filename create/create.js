@@ -16,7 +16,7 @@ userData.addEventListener('submit', async (e) => {
     const imgFile = profileData.get('avatar');
 
     if (imgFile.size) {
-        const imgPath = `${currentUser.id}/${imgFile.name}`;
+        const imgPath = `${newProfile.user_id}/${imgFile.name}`;
         const url = await uploadImg(imgPath, imgFile);
         newProfile.avatar_url = url;
     }
