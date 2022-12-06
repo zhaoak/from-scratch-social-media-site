@@ -1,4 +1,4 @@
-import { fetchCurrentUser, upsertProfile } from '../fetch-utils.js';
+import { fetchCurrentUser, upsertProfile, uploadImg } from '../fetch-utils.js';
 
 const userData = document.getElementById('create');
 let currentUser;
@@ -9,6 +9,7 @@ window.addEventListener('load', async () => {
 
 userData.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const profileData = new FormData(userData);
     const newProfile = { user_name: profileData.get('username'), bio: profileData.get('bio') };
     const imgFile = profileData.get('avatar');
@@ -16,7 +17,13 @@ userData.addEventListener('submit', async (e) => {
     if (imgFile.size) {
         const imgPath = `${currentUser.id}/${imgFile.name}`;
         const url = await uploadImg(imgPath, imgFile);
+        newProfile.avatar_url = url;
     }
+    const response = await upsertProfile(newProfile);
 
-    upsertProfile();
+    if (response.error) {
+        console.error(response.error);
+    } else {
+        location.assign(`../`);
+    }
 });
