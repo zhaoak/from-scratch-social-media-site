@@ -37,7 +37,10 @@ export function checkError({ data, error }) {
 }
 
 export async function fetchAllProfiles() {
-    const response = await client.from('profiles').select().order('popularity');
+    const response = await client
+        .from('profiles')
+        .select()
+        .order('popularity', { ascending: false });
 
     return checkError(response);
 }

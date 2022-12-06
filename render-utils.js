@@ -70,18 +70,32 @@ export function renderNavBarContents(profile) {
 export function renderProfileDetails(profile) {
     const profileDetailsContainerEl = document.createElement('div');
     const imageEl = document.createElement('img');
-    const popularityDisplayEl = document.createElement('div');
-    const upvoteEl = document.createElement('button');
-    const downvoteEl = document.createElement('button');
+    const popularityEl = renderPopularityEl(profile);
     const usernameHeaderEl = document.createElement('h2');
     const userBioEl = document.createElement('div');
 
     imageEl.src = profile.avatar_url;
+
+    usernameHeaderEl.textContent = profile.user_name;
+    userBioEl.textContent = profile.bio;
+
+    //css styling yet unfinished
+    imageEl.classList.add('detailimg');
+
+    profileDetailsContainerEl.append(imageEl, popularityEl, usernameHeaderEl, userBioEl);
+
+    return profileDetailsContainerEl;
+}
+
+export function renderPopularityEl(profile) {
+    const popularityContainerEl = document.createElement('div');
+    const popularityDisplayEl = document.createElement('div');
+    const upvoteEl = document.createElement('button');
+    const downvoteEl = document.createElement('button');
+
     popularityDisplayEl.textContent = profile.popularity;
     upvoteEl.textContent = 'Upvote';
     downvoteEl.textContent = 'Downvote';
-    usernameHeaderEl.textContent = profile.user_name;
-    userBioEl.textContent = profile.bio;
 
     //eventHandler for up/downvote buttons
     upvoteEl.addEventListener('click', async () => {
@@ -100,17 +114,7 @@ export function renderProfileDetails(profile) {
         popularityDisplayEl.textContent--;
     });
 
-    //css styling yet unfinished
-    imageEl.classList.add('detailimg');
+    popularityContainerEl.append(popularityDisplayEl, upvoteEl, downvoteEl);
 
-    profileDetailsContainerEl.append(
-        imageEl,
-        popularityDisplayEl,
-        upvoteEl,
-        downvoteEl,
-        usernameHeaderEl,
-        userBioEl
-    );
-
-    return profileDetailsContainerEl;
+    return popularityContainerEl;
 }
