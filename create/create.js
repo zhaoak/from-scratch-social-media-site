@@ -1,11 +1,8 @@
-import { fetchCurrentUser, upsertProfile, uploadImg, getUser } from '../fetch-utils.js';
+import { upsertProfile, uploadImg, getUser } from '../fetch-utils.js';
 
 const userData = document.getElementById('create');
-let currentUser;
 
-window.addEventListener('load', async () => {
-    currentUser = fetchCurrentUser();
-});
+window.addEventListener('load', async () => {});
 
 userData.addEventListener('submit', async (e) => {
     e.preventDefault();
