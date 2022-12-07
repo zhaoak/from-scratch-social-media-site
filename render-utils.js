@@ -32,6 +32,7 @@ export function renderNavBarContents(profile) {
     const currentUserAvatar = document.createElement('img');
     const logoutLink = document.createElement('a');
     const separatorChar = document.createElement('span');
+    const chatRoomLink = document.createElement('a');
 
     profileListPageLink.href = '../index.html';
     profileListPageLink.textContent = 'All Profiles';
@@ -39,6 +40,8 @@ export function renderNavBarContents(profile) {
     editProfilePageLink.textContent = 'Edit Your Profile';
     currentUserUsernameLink.href = `../detail/index.html?id=${profile.id}`;
     currentUserUsernameLink.textContent = `${profile.user_name}`;
+    chatRoomLink.href = `../chat/index.html`;
+    chatRoomLink.textContent = 'Chat';
     // making an anchor tag to put avatar image inside of so avatar can act as a link
     const avatarLinkWrapper = document.createElement('a');
     avatarLinkWrapper.href = `../detail/index.html?id=${profile.id}`;
@@ -60,6 +63,7 @@ export function renderNavBarContents(profile) {
         profileListPageLink,
         separatorChar,
         editProfilePageLink,
+        chatRoomLink,
         separatorChar,
         currentUserUsernameLink,
         avatarLinkWrapper,
