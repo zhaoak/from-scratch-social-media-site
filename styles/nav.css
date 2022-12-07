@@ -1,0 +1,21 @@
+.avatar-img {
+    height: 3em;
+    width: 3em;
+}
+
+#spronkrlogo {
+    height: 5em;
+}
+
+nav > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1rem;
+}
+
+nav {
+    display: flex;
+}
