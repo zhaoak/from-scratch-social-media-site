@@ -24,6 +24,7 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
         - logged in user's profile page
         - edit user profile page
         - logout button
+        - add chatroom link
 
 ### Profiles list page
 
@@ -43,6 +44,13 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 
     - same as profile page, without links to other pages at top
 
+### Chatroom page
+
+    - section for all messages to be rendered to
+    - Input form for user message and anything else to send with message, using a button
+    - Scrolling window on page to see previous messages
+    - sticky form and header bar
+
 ## State (everything you need to track internally using JS variables)
 
 ### (All pages)
@@ -56,6 +64,12 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 ### Detail page
 
     - object to hold single profile data locally to render to page
+
+### Chatroom page
+
+    - array to hold 150 most recent messages
+    - object to hold currently logged in user data
+    - object hold which chatroom user is in
 
 ## Events (anything that happens via JS when the user interacts with your site)
 
@@ -71,6 +85,21 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 ### Create/Edit Profile pages
 
     - on form submit: update info in DB
+
+### Chatroom page
+
+    - on page load:
+        - check if user has profile/logged in
+        - retrieve n most recent messages (will find appropriate number to balance performance and usage)
+        - broadcast message that current user has joined the chat
+        - post current users current status on chatroom login
+
+    - on submit message:
+        - send message to database
+
+    - on receive message:
+        - update message array
+        - append new message to the chat display
 
 ## Functions
 
@@ -94,6 +123,15 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
     - `upsertProfile(profile)` - updates/creates profile in supabase: if a field is left blank, do not update that column
     - `incrementPopularity(id)` - using id, increments profile popularity in DB
     - `decrementPopularity(id)` - same as above but decrement instead
+
+### Chatroom functions
+
+    - `fetchRecentMessages` - on chatroom load
+    - `sendMessage(message)` - send message to the table, doesn't use realtime
+    - `renderMessage(message)` - takes message object as argument
+    - `displayNewMessage` - display function that appends rendered messaged to the chat display
+    - `displayPreviousMessages` - display function for previous messaged when entering chatroom, appending to chat display
+    - `handleMessage(message)` - error checking and message type identification function before displaying to chat
 
 ### Other Functions
 
@@ -120,8 +158,9 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
     - open a new dedicated window or tab
     - when user name is displayed, chat user details will be pulled from user profile
     - usernames can be clickable and redirect to user profile detail page
+    - only store last 150 messages locally
 
 ### Stretch goals:
 
     - confetti/celebratory emotes
-    - only display last 150 messages
+    - multiple chatrooms for users to select from
