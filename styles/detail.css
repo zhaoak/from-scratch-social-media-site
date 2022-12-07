@@ -1,4 +1,41 @@
 .detailimg {
+    min-width: 10rem;
+    min-height: 10rem;
     max-width: 20rem;
     max-height: 20rem;
+    align-self: center;
+}
+
+button {
+    border: thick dashed var(--baby-blue-eyes);
+    background: lavender;
+    height: 5rem;
+    width: 10rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 3rem;
+}
+
+#profile-details {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-details-div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    align-content: center;
+    gap: 25px;
+}
+
+.popularity-section {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 4em;
+    gap: 2rem;
 }

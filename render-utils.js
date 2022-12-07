@@ -82,6 +82,8 @@ export function renderProfileDetails(profile) {
 
     //css styling yet unfinished
     imageEl.classList.add('detailimg');
+    popularityEl.classList.add('popularity-section');
+    profileDetailsContainerEl.classList.add('profile-details-div');
 
     profileDetailsContainerEl.append(imageEl, popularityEl, usernameHeaderEl, userBioEl);
 
@@ -115,7 +117,7 @@ export function renderPopularityEl(profile) {
         popularityDisplayEl.textContent--;
     });
 
-    popularityContainerEl.append(popularityDisplayEl, upvoteEl, downvoteEl);
+    popularityContainerEl.append(upvoteEl, popularityDisplayEl, downvoteEl);
 
     return popularityContainerEl;
 }
