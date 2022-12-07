@@ -2,3 +2,22 @@
     height: 3em;
     width: 3em;
 }
+
+#spronkrlogo {
+    height: 5em;
+}
+
+nav > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    right: 2%;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+}
