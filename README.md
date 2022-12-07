@@ -103,3 +103,13 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
 
     - change cursor to look clickable when hovering clickable objects
     - drop shadows absolutely everywhere
+    - better fonts for navbar and fonts page
+    - layout for create/edit and display page
+    - more gradients
+    - animations???
+
+## Budget
+    
+    - functionality: 1%
+    - moderation: 1%
+    - css: 98%
