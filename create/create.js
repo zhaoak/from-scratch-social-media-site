@@ -1,8 +1,10 @@
-import { upsertProfile, uploadImg, getUser } from '../fetch-utils.js';
+import { upsertProfile, uploadImg, getUser, redirectIfNotLoggedIn } from '../fetch-utils.js';
 
 const userData = document.getElementById('create');
 
-window.addEventListener('load', async () => {});
+window.addEventListener('load', async () => {
+    redirectIfNotLoggedIn();
+});
 
 userData.addEventListener('submit', async (e) => {
     e.preventDefault();

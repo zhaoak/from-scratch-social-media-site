@@ -1,6 +1,11 @@
 //imports
 
-import { fetchCurrentUser, fetchProfile, redirectIfNoProfile } from '../fetch-utils.js';
+import {
+    fetchCurrentUser,
+    fetchProfile,
+    redirectIfNoProfile,
+    redirectIfNotLoggedIn,
+} from '../fetch-utils.js';
 import { renderProfileDetails, renderNavBarContents } from '../render-utils.js';
 
 //dom
@@ -15,6 +20,7 @@ const id = params.get('id');
 //events
 
 window.addEventListener('load', async () => {
+    redirectIfNotLoggedIn();
     if (!id) {
         location.assign('/');
 

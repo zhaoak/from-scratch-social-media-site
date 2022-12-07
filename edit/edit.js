@@ -4,6 +4,7 @@ import {
     getUser,
     fetchCurrentUser,
     redirectIfNoProfile,
+    redirectIfNotLoggedIn,
 } from '../fetch-utils.js';
 import { renderNavBarContents } from '../render-utils.js';
 
@@ -15,6 +16,8 @@ const bioEntryEl = document.querySelector('textarea');
 let currentUser;
 
 window.addEventListener('load', async () => {
+    redirectIfNotLoggedIn();
+
     currentUser = await fetchCurrentUser();
 
     redirectIfNoProfile(currentUser);

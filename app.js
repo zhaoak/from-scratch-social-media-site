@@ -1,7 +1,12 @@
 /* Imports */
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
-import { fetchAllProfiles, fetchCurrentUser, redirectIfNoProfile } from './fetch-utils.js';
+import {
+    fetchAllProfiles,
+    fetchCurrentUser,
+    redirectIfNoProfile,
+    redirectIfNotLoggedIn,
+} from './fetch-utils.js';
 import { renderProfileCard, renderNavBarContents } from './render-utils.js';
 
 /* Get DOM Elements */
@@ -14,6 +19,7 @@ let currentUser;
 
 /* Events */
 window.addEventListener('load', async () => {
+    redirectIfNotLoggedIn();
     profiles = await fetchAllProfiles();
     currentUser = await fetchCurrentUser();
 

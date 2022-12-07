@@ -115,3 +115,9 @@ export function redirectIfNoProfile(profile) {
         location.replace('../create');
     }
 }
+
+export function redirectIfNotLoggedIn() {
+    if (!getUser()) {
+        location.replace('../auth');
+    }
+}
