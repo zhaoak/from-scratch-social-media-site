@@ -109,7 +109,19 @@ _Generic social media site that allows users to make a profile, upvote/downvote 
     - animations???
 
 ## Budget
-    
+
     - functionality: 1%
     - moderation: 1%
     - css: 98%
+
+## Messaging
+
+    - implement a global realtime chat feature
+    - open a new dedicated window or tab
+    - when user name is displayed, chat user details will be pulled from user profile
+    - usernames can be clickable and redirect to user profile detail page
+
+### Stretch goals:
+
+    - confetti/celebratory emotes
+    - only display last 150 messages
