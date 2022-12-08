@@ -6,6 +6,24 @@ body {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    height: 60%;
+    width: 90%;
+    overflow: auto;
+    position: fixed;
+    box-sizing: content-box;
+    border: thick double var(--pink-lavender);
+    border-radius: 3em;
+    background: var(--uranian-blue);
+    padding: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#message-form {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .avatar-img {
