@@ -121,3 +121,13 @@ export function redirectIfNotLoggedIn() {
         location.replace('../auth');
     }
 }
+
+export async function fetchRecentMessages() {
+    const response = await client
+        .from('messages')
+        .select('*')
+        .order('created_at', { ascending: true })
+        .limit(150);
+
+    return checkError(response);
+}

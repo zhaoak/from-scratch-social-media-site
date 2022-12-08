@@ -6,6 +6,8 @@ const navBarEl = document.querySelector('nav');
 
 // State
 let currentUser;
+let messageLog;
+let currentChatroom = 1;
 
 //Event Listeners
 window.addEventListener('load', async () => {
