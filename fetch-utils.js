@@ -131,3 +131,20 @@ export async function fetchRecentMessages() {
 
     return checkError(response);
 }
+
+export async function sendMessage(message) {
+    const response = await client
+        .from('messages')
+        .insert({
+            text: message.text,
+            sender_username: message.sender_username,
+            sender_id: message.sender_id,
+        })
+        .single();
+
+    return checkError(response);
+}
+
+export function onMessage(handleMessage) {
+    client.from('messages').on('INSERT', handleMessage).subscribe();
+}
