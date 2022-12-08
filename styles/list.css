@@ -19,7 +19,7 @@
 }
 
 #profiles-list {
-    height: 80%;
+    height: 75%;
     display: flex;
     flex-flow: column wrap;
     gap: 0.5rem;
