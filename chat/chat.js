@@ -60,6 +60,6 @@ async function displayPreviousMessages() {
     }
 }
 
-function displayNewMessage(message) {
-    messageDisplay.append(renderMessage(message));
+async function displayNewMessage(message) {
+    messageDisplay.append(await renderMessage(message));
 }

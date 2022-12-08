@@ -19,10 +19,13 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     font-family: var(--primary-font);
     color: var(--text-color);
     background: linear-gradient(225deg, #cdb4dbff, #ffc8ddff, #ffafccff, #bde0feff, #a2d2ffff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: grid;
     grid-template-rows: auto 1fr;
 }

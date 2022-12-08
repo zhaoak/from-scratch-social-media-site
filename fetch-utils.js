@@ -145,6 +145,6 @@ export async function sendMessage(message) {
     return checkError(response);
 }
 
-export function onMessage(handleMessage) {
-    client.from('messages').on('INSERT', handleMessage).subscribe();
+export async function onMessage(handleMessage) {
+    await client.from('messages').on('INSERT', handleMessage).subscribe();
 }
