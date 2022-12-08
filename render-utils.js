@@ -147,6 +147,8 @@ export async function renderMessage(message) {
     timeStamp.textContent = message.created_at;
 
     //Add css classes
+    messageAvatar.classList.add('avatar-img');
+    messageBubble.classList.add('message-bubble');
 
     messageBubble.append(messageAvatar, messageUsername, messageContent, timeStamp);
 

@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+
+#chat-display {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.avatar-img {
+    max-width: 3rem;
+    max-height: 3rem;
+    border-radius: 1rem;
+}
+
+.message-bubble {
+    border: thick solid var(--pink-lavender);
+    background: var(--nadeshiko-pink);
+    border-radius: 4rem;
+    text-align: center;
+    width: 60%;
+    margin-bottom: 0.25em;
+    padding-top: 0.2em;
+    padding-bottom: 0.4em;
+    line-height: 0.5em;
+}

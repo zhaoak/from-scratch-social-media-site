@@ -10,7 +10,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    max-width: 20rem;
+    width: 20rem;
     border: thick double #cdb4dbff;
     border-radius: 2rem;
     padding-left: 1rem;
@@ -19,7 +19,15 @@
 }
 
 #profiles-list {
+    height: 80%;
     display: flex;
     flex-flow: column wrap;
     gap: 0.5rem;
+    justify-content: center;
+    align-content: center;
+}
+
+html,
+body {
+    overflow: hidden;
 }
