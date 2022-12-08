@@ -1,4 +1,9 @@
-import { incrementPopularity, decrementPopularity, signOutUser } from './fetch-utils.js';
+import {
+    incrementPopularity,
+    decrementPopularity,
+    signOutUser,
+    fetchProfile,
+} from './fetch-utils.js';
 
 export function renderProfileCard(profile) {
     const profileContainer = document.createElement('div');
@@ -124,4 +129,26 @@ export function renderPopularityEl(profile) {
     popularityContainerEl.append(upvoteEl, popularityDisplayEl, downvoteEl);
 
     return popularityContainerEl;
+}
+
+export async function renderMessage(message) {
+    const messageBubble = document.createElement('div');
+    const messageUsername = document.createElement('p');
+    const messageContent = document.createElement('p');
+    const messageAvatar = document.createElement('img');
+    const timeStamp = document.createElement('span');
+
+    messageUsername.textContent = message.sender_username;
+    messageContent.textContent = message.text;
+
+    const senderProfile = await fetchProfile(message.sender_id);
+    messageAvatar.src = senderProfile.avatar_url;
+
+    timeStamp.textContent = message.created_at;
+
+    //Add css classes
+
+    messageBubble.append(messageAvatar, messageUsername, messageContent, timeStamp);
+
+    return messageBubble;
 }
