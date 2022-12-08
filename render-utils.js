@@ -131,12 +131,17 @@ export function renderPopularityEl(profile) {
     return popularityContainerEl;
 }
 
+// needs to fetch avatar url from profiles table
 export async function renderMessage(message) {
     const messageBubble = document.createElement('div');
     const messageUsername = document.createElement('p');
     const messageContent = document.createElement('p');
     const messageAvatar = document.createElement('img');
     const timeStamp = document.createElement('span');
+
+    // divs for spacing different parts of message
+    const avatarUsernameSect = document.createElement('div');
+    const messageTextSect = document.createElement('div');
 
     messageUsername.textContent = message.sender_username;
     messageContent.textContent = message.text;
@@ -149,8 +154,13 @@ export async function renderMessage(message) {
     //Add css classes
     messageAvatar.classList.add('avatar-img');
     messageBubble.classList.add('message-bubble');
+    avatarUsernameSect.classList.add('message-left-section');
+    messageTextSect.classList.add('message-content-section');
+    timeStamp.classList.add('message-timestamp');
 
-    messageBubble.append(messageAvatar, messageUsername, messageContent, timeStamp);
+    avatarUsernameSect.append(messageAvatar, messageUsername);
+    messageTextSect.append(messageContent, timeStamp);
+    messageBubble.append(avatarUsernameSect, messageTextSect);
 
     return messageBubble;
 }

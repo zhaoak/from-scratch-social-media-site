@@ -21,7 +21,33 @@ body {
     text-align: center;
     width: 60%;
     margin-bottom: 0.25em;
-    padding-top: 0.2em;
+    padding-top: 0.4em;
     padding-bottom: 0.4em;
     line-height: 0.5em;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.message-left-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    background: radial-gradient(closest-side, #a2d2ffff, #ffafccff);
+    border-radius: 3em;
+}
+
+.message-content-section {
+    width: 75%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.message-timestamp {
+    font-size: 0.7em;
+    align-self: flex-end;
 }
