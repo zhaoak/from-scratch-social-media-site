@@ -1,0 +1,22 @@
+main {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+button {
+    max-width: 25%;
+    font-weight: bold;
+}
+
+label {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-weight: bolder;
+}

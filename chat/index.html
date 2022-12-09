@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- metadata -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!-- title and favicon -->
+        <title>SPRONKR</title>
         <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
 
+        <!-- js -->
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
         ></script>
-        <script type="module" src="auth.js"></script>
+        <script type="module" src="chat.js"></script>
         <script type="text/javascript">
             // <![CDATA[
             var colour = '#a800ff';
@@ -180,6 +185,7 @@
             // ]]>
         </script>
 
+        <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -187,34 +193,36 @@
             href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
         />
 
+        <!-- css -->
         <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/global.css" />
-        <link rel="stylesheet" href="/styles/form.css" />
+        <link rel="stylesheet" href="/styles/chat.css" />
         <link rel="stylesheet" href="/styles/nav.css" />
         <link rel="stylesheet" href="/styles/mousesparkles.html" />
 
-        <title>RU Reddy 2 SPR0NK???!</title>
+        <!-- add link for page specific css -->
     </head>
 
     <body>
         <header class="page-header">
             <img src="/assets/SPRONKR_downsized.png" id="spronkrlogo" alt="SPRONKR" />
+            <nav></nav>
         </header>
 
         <main>
-            <form id="auth-form">
-                <h2></h2>
+            <h3>Everyone in the chatroom can read your messages</h3>
+            <section id="chat-display"></section>
+            <form id="message-form">
                 <label>
-                    Email
-                    <input type="email" name="email" required />
+                    <textarea
+                        name="message-text"
+                        rows="5"
+                        cols="50"
+                        required
+                        placeholder="Type message here..."
+                    ></textarea>
                 </label>
-                <label>
-                    Password
-                    <input type="password" name="password" required />
-                </label>
-                <button></button>
-                <p class="error"></p>
-                <a href=""></a>
+                <button type="submit">Send</button>
             </form>
         </main>
     </body>

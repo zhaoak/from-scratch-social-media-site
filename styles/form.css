@@ -3,7 +3,7 @@ form:not(.inline) {
     margin: auto;
     max-width: 500px;
     border: 1px solid;
-    background: var(--offset-color);
+    background: var(--pink-lavender);
     padding: 20px;
 
     display: grid;
